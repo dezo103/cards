@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui'
+import { Button } from '@/components/ui/button'
 
 export function App() {
   return (
@@ -6,7 +6,7 @@ export function App() {
       <Button as={'a'} href={'/Link'} variant={'link'}>
         Button As Button
       </Button>
-      <Button variant={'secondary'}>Button as a</Button>
+      <Button variant={'primary'}>Button as a</Button>
     </div>
   )
 }

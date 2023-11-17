@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from './'
+// eslint-disable-next-line import/extensions
+import { Button } from './index.ts'
 
 const meta = {
   argTypes: {
@@ -14,7 +15,7 @@ const meta = {
   },
   component: Button,
   tags: ['autodocs'],
-  title: 'Components/basicComponents/Button',
+  title: 'Components/Button',
 } satisfies Meta<typeof Button>
 
 export default meta
