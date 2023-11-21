@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
+import { CSSProperties, ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import { ButtonProps } from '@/components/ui/button'
 
@@ -8,6 +8,7 @@ export type TypographyProps<T extends ElementType = 'p'> = {
   as?: T
   children: ReactNode
   className?: string
+  styles?: CSSProperties
   variant?:
     | 'body1'
     | 'body2'
@@ -23,7 +24,7 @@ export type TypographyProps<T extends ElementType = 'p'> = {
 export const Typography = <T extends ElementType = 'p'>(
   props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>
 ) => {
-  const { as: Component = 'p', className, variant = 'body1', ...rest } = props
+  const { as: Component = 'p', className, styles, variant = 'body1', ...rest } = props
 
-  return <Component className={`${s.text} ${s[variant]} ${className}`} {...rest} />
+  return <Component className={`${s.text} ${s[variant]} ${className}`} style={styles} {...rest} />
 }

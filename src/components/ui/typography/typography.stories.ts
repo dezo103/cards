@@ -95,3 +95,13 @@ export const Link2: Story = {
     variant: 'link2',
   },
 }
+
+export const StyledLarge: Story = {
+  args: {
+    children: 'Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH',
+    styles: {
+      color: 'indianred',
+    },
+    variant: 'large',
+  },
+}
