@@ -45,3 +45,28 @@ export const CardWithTypography: Story = {
     ],
   },
 }
+
+export const ArticleCard: Story = {
+  args: {
+    as: 'article',
+    children: ['ArticleCard'],
+  },
+}
+
+export const SectionCard: Story = {
+  args: {
+    as: 'section',
+    children: ['SectionCard'],
+  },
+}
+
+export const StyledCard: Story = {
+  args: {
+    children: ['StyledCard'],
+    style: {
+      backgroundColor: 'lightgray',
+      height: '480px',
+      width: '640px',
+    },
+  },
+}
