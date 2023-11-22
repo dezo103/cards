@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import image from '../../../assets/images/log-out.svg'
 // eslint-disable-next-line import/extensions
 import { Button } from './index.ts'
 
@@ -64,6 +65,14 @@ export const AsLink: Story = {
   args: {
     as: 'a',
     children: 'Link that looks like a button',
+    variant: 'primary',
+  },
+}
+
+export const PrimaryWithImage: Story = {
+  args: {
+    children: <img alt={'image'} src={image} />,
+    disabled: false,
     variant: 'primary',
   },
 }
