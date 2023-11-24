@@ -28,6 +28,7 @@ export const BaseInput: Story = {
   args: {
     label: 'label',
     placeholder: 'placeholder',
+    type: 'text',
   },
 }
 
@@ -36,5 +37,14 @@ export const ErrorInput: Story = {
     error: 'Error',
     label: 'label',
     placeholder: 'placeholder',
+    type: 'text',
+  },
+}
+export const DisabledInput: Story = {
+  args: {
+    disabled: true,
+    label: 'disabled',
+    placeholder: 'placeholder',
+    type: 'text',
   },
 }
