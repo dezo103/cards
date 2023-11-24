@@ -11,9 +11,7 @@
   border: 2px solid var(--color-dark-300);
   border-radius: 2px;
 
-  &:hover {
-    background-color: var(--color-dark-700);
-  }
+
 
   &:focus {
     border-color: var(--color-info-700);
@@ -22,17 +20,22 @@
 
   &:active {
     border-color: var(--color-light-100);
-    outline: none;;
+    outline: none;
   }
 
   &:disabled {
+    cursor: no-drop;
     color: var(--color-dark-300);
     border-color: var(--color-dark-300);
+  }
+
+  &:hover:not([disabled]) {
+    background-color: var(--color-dark-700);
   }
 }
 
 label {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 
   font-size: var(--font-size-s);
@@ -45,4 +48,38 @@ label {
   font-size: var(--font-size-xs);
   line-height: var(--line-height-m);
   color: var(--color-danger-300);
+}
+
+.error {
+  color: var(--color-danger-300);
+  border: 2px solid var(--color-danger-300);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+}
+
+.eyeIcon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.searchInput {
+  padding-left: 41px;
+}
+
+.passwordInput {
+  padding-right: 41px;
 }
