@@ -11,6 +11,7 @@ export type InputProps = {
   error?: string
   isPassword?: boolean
   label?: string
+  name?: string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   styles?: CSSProperties
@@ -19,8 +20,19 @@ export type InputProps = {
 }
 
 export const Input = (props: InputProps) => {
-  const { className, disabled, error, isPassword, label, onChange, styles, type, value, ...rest } =
-    props
+  const {
+    className,
+    disabled,
+    error,
+    isPassword,
+    label,
+    name,
+    onChange,
+    styles,
+    type,
+    value,
+    ...rest
+  } = props
 
   const [localType, setLocalType] = useState(type)
   const toggleVisibility = () => {
