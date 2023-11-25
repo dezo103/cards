@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { LogoutIcon } from '@/assets/images/logoutIcon.tsx'
+import { Typography } from '@/components/ui/typography'
 
 // eslint-disable-next-line import/extensions
 import { Button } from './index.ts'
@@ -78,6 +79,14 @@ export const PrimaryWithImage: Story = {
         Primary Button
       </>
     ),
+    disabled: false,
+    variant: 'primary',
+  },
+}
+
+export const TypographyPrimary: Story = {
+  args: {
+    children: <Typography styles={{ color: 'lightgray' }}>WithTypography</Typography>,
     disabled: false,
     variant: 'primary',
   },
