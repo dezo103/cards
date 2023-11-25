@@ -72,6 +72,9 @@ label {
   top: 50%;
   right: 12px;
   transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
 }
 
 .inputWrapper {

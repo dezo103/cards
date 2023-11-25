@@ -1,9 +1,9 @@
 import { CSSProperties, ChangeEvent, useState } from 'react'
 
-import s from './input.module.scss'
+import { EyeIcon } from '@/assets/images/eyeIcon.tsx'
+import { SearchIcon } from '@/assets/images/searchIcon.tsx'
 
-import eye from '../../../assets/images/eye-outline.svg'
-import search from '../../../assets/images/search-outline.svg'
+import s from './input.module.scss'
 
 export type InputProps = {
   className?: string
@@ -31,9 +31,15 @@ export const Input = (props: InputProps) => {
     <label>
       {label}
       <div className={s.inputWrapper}>
-        {type === 'search' && <img alt={'search'} className={s.searchIcon} src={search} />}
+        {type === 'search' && (
+          <div className={s.searchIcon}>
+            <SearchIcon />
+          </div>
+        )}
         {type === 'password' && (
-          <img alt={'eye'} className={s.eyeIcon} onClick={toggleVisibility} src={eye} />
+          <div className={s.eyeIcon} onClick={toggleVisibility}>
+            <EyeIcon />
+          </div>
         )}
         <input
           className={`${s.input} ${className} ${error && s.error} 

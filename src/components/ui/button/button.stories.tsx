@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import image from '../../../assets/images/log-out.svg'
+import { LogoutIcon } from '@/assets/images/logoutIcon.tsx'
+
 // eslint-disable-next-line import/extensions
 import { Button } from './index.ts'
 
@@ -73,7 +74,7 @@ export const PrimaryWithImage: Story = {
   args: {
     children: (
       <>
-        <img alt={'image'} src={image} />
+        <LogoutIcon />
         Primary Button
       </>
     ),
