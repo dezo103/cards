@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { LogoutIcon } from '@/assets/images/logoutIcon.tsx'
+import { LogoutIcon } from '@/assets/images/logoutIcon'
 import { Typography } from '@/components/ui/typography'
 
 // eslint-disable-next-line import/extensions

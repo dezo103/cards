@@ -1,7 +1,7 @@
 import { CSSProperties, ChangeEvent, useState } from 'react'
 
-import { EyeIcon } from '@/assets/images/eyeIcon.tsx'
-import { SearchIcon } from '@/assets/images/searchIcon.tsx'
+import { EyeIcon } from '@/assets/images/eyeIcon'
+import { SearchIcon } from '@/assets/images/searchIcon'
 
 import s from './input.module.scss'
 
