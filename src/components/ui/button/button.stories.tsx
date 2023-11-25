@@ -71,7 +71,12 @@ export const AsLink: Story = {
 
 export const PrimaryWithImage: Story = {
   args: {
-    children: <img alt={'image'} src={image} />,
+    children: (
+      <>
+        <img alt={'image'} src={image} />
+        Primary Button
+      </>
+    ),
     disabled: false,
     variant: 'primary',
   },
