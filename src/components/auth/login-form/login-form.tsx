@@ -2,7 +2,8 @@ import { useController, useForm } from 'react-hook-form'
 
 import { FormValues, loginSchema } from '@/components/auth/login-form/validator'
 import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+// import { Checkbox } from '@/components/ui/checkbox'
+import { ControlledCheckbox } from '@/components/ui/controlled/controlled-checkbox/controlled-checkbox'
 import { Input } from '@/components/ui/input'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -49,11 +50,18 @@ export const LoginForm = () => {
         label={'password'}
         type={'password'}
       />
-      <Checkbox
+      {/*<Checkbox*/}
+      {/*  {...register('rememberMe')}*/}
+      {/*  checked={value}*/}
+      {/*  label={'remember me'}*/}
+      {/*  onChange={onChange}*/}
+      {/*/>*/}
+      <ControlledCheckbox
         {...register('rememberMe')}
         checked={value}
+        control={control}
         label={'remember me'}
-        onChange={onChange}
+        onValueChange={onChange}
       />
       <Button type={'submit'}>Submit</Button>
     </form>

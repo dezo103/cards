@@ -8,11 +8,11 @@ export type CheckboxProps = {
   disabled?: boolean
   id?: string
   label?: string
-  onChange: (checked: boolean) => void
+  onValueChange: (checked: boolean) => void
   required?: boolean
 }
 export const Checkbox = (props: CheckboxProps) => {
-  const { checked, disabled, id, label, onChange, required, ...rest } = props
+  const { checked, disabled, id, label, onValueChange, required, ...rest } = props
 
   return (
     <form>
@@ -24,7 +24,7 @@ export const Checkbox = (props: CheckboxProps) => {
             defaultChecked
             disabled={disabled}
             id={'c1'}
-            onCheckedChange={onChange}
+            onCheckedChange={onValueChange}
             {...rest}
           >
             <CheckboxRadix.Indicator className={s.CheckboxIndicator}>
