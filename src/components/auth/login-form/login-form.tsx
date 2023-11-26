@@ -50,12 +50,6 @@ export const LoginForm = () => {
         label={'password'}
         type={'password'}
       />
-      {/*<Checkbox*/}
-      {/*  {...register('rememberMe')}*/}
-      {/*  checked={value}*/}
-      {/*  label={'remember me'}*/}
-      {/*  onChange={onChange}*/}
-      {/*/>*/}
       <ControlledCheckbox
         {...register('rememberMe')}
         checked={value}
