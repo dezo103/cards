@@ -1,15 +1,19 @@
 import { useController, useForm } from 'react-hook-form'
 
+import { FormValues, loginSchema } from '@/components/auth/login-form/validator'
+import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
+import { DevTool } from '@hookform/devtools'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Button } from '../../ui/button'
+// type FormValues = {
+//   email: string
+//   password: string
+//   rememberMe: boolean
+// }
 
-type FormValues = {
-  email: string
-  password: string
-  rememberMe: boolean
-}
+// OR
 
 export const LoginForm = () => {
   const {
@@ -17,12 +21,11 @@ export const LoginForm = () => {
     formState: { errors },
     handleSubmit,
     register,
-  } = useForm<FormValues>()
+  } = useForm<FormValues>({
+    resolver: zodResolver(loginSchema),
+  })
 
   console.log('errors: ', errors)
-
-  const emailRegex =
-    /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
 
   const onSubmit = (data: FormValues) => {
     console.log(data)
@@ -37,21 +40,11 @@ export const LoginForm = () => {
   })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <DevTool control={control} />
+      <Input {...register('email')} error={errors.email?.message} label={'email'} type={'email'} />
       <Input
-        {...register('email', {
-          pattern: { message: 'Invalid email', value: emailRegex },
-          required: 'Email is required',
-        })}
-        error={errors.email?.message}
-        label={'email'}
-        type={'email'}
-      />
-      <Input
-        {...register('password', {
-          minLength: { message: 'Password has to be at least 3 characters long', value: 3 },
-          required: 'Password is required',
-        })}
+        {...register('password')}
         error={errors.password?.message}
         label={'password'}
         type={'password'}
