@@ -1,4 +1,4 @@
-import { CSSProperties, ChangeEvent, useState } from 'react'
+import { CSSProperties, ChangeEvent, forwardRef, useState } from 'react'
 
 import { EyeIcon } from '@/assets/images/eyeIcon'
 import { SearchIcon } from '@/assets/images/searchIcon'
@@ -11,7 +11,6 @@ export type InputProps = {
   error?: string
   isPassword?: boolean
   label?: string
-  name?: string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   styles?: CSSProperties
@@ -19,20 +18,9 @@ export type InputProps = {
   value?: number | string
 }
 
-export const Input = (props: InputProps) => {
-  const {
-    className,
-    disabled,
-    error,
-    isPassword,
-    label,
-    name,
-    onChange,
-    styles,
-    type,
-    value,
-    ...rest
-  } = props
+export const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) => {
+  const { className, disabled, error, isPassword, label, onChange, styles, type, value, ...rest } =
+    props
 
   const [localType, setLocalType] = useState(type)
   const toggleVisibility = () => {
@@ -58,6 +46,7 @@ export const Input = (props: InputProps) => {
           ${type === 'search' && s.searchInput}
           ${type === 'password' && s.passwordInput}`}
           disabled={disabled}
+          ref={ref}
           style={styles}
           type={localType || type}
           {...rest}
@@ -66,4 +55,4 @@ export const Input = (props: InputProps) => {
       <p className={s.errorMessage}>{error}</p>
     </label>
   )
-}
+})
