@@ -1,12 +1,12 @@
 import { useController, useForm } from 'react-hook-form'
 
-import { FormValues, loginSchema } from '@/components/auth/login-form/validator'
+import { loginSchema } from '@/components/auth/login-form/validator'
 import { Button } from '@/components/ui/button'
-// import { Checkbox } from '@/components/ui/checkbox'
 import { ControlledCheckbox } from '@/components/ui/controlled/controlled-checkbox/controlled-checkbox'
 import { Input } from '@/components/ui/input'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 
 // type FormValues = {
 //   email: string
@@ -16,7 +16,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 // OR
 
-export const LoginForm = () => {
+export type FormValues = z.infer<typeof loginSchema>
+type Props = {
+  onSubmit: (values: FormValues) => void
+}
+
+export const LoginForm = ({ onSubmit }: Props) => {
   const {
     control,
     formState: { errors },
@@ -25,12 +30,6 @@ export const LoginForm = () => {
   } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
   })
-
-  console.log('errors: ', errors)
-
-  const onSubmit = (data: FormValues) => {
-    console.log(data)
-  }
 
   const {
     field: { onChange, value },
