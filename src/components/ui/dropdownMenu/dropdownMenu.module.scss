@@ -1,7 +1,6 @@
-
-/* reset */
 .button {
   all: unset;
+  cursor: pointer;
 }
 
 .DropdownMenuContent,
@@ -127,26 +126,6 @@
   border-right: none;
   border-bottom: none;
 }
-
-//.IconButton {
-//  display: inline-flex;
-//  align-items: center;
-//  justify-content: center;
-//
-//  width: 35px;
-//  height: 35px;
-//
-//  font-family: inherit;
-//  color: violet;
-//
-//  background-color: white;
-//  border-radius: 100%;
-//  box-shadow: 0 2px 10px black;
-//}
-
-//.IconButton:hover {
-//  background-color: violet;
-//}
 
 .IconButton:focus {
   box-shadow: 0 0 0 2px black;
