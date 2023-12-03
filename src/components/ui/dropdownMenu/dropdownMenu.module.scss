@@ -1,6 +1,7 @@
 .button {
   all: unset;
   cursor: pointer;
+  margin-left: 300px;
 }
 
 .DropdownMenuContent,
@@ -116,7 +117,7 @@
 .DropdownArrow {
   position: absolute;
   top: -6px;
-  right: 14px;
+  right: 6px;
   transform: rotate(45deg);
 
   width: 12px;
