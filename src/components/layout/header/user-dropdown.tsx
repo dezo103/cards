@@ -3,6 +3,7 @@ import { PersonOutlined } from '@/assets/images/personOutlined'
 import { DropdownCustomMenu } from '@/components/ui/dropdownMenu'
 import { DropdownItem } from '@/components/ui/dropdownMenu/dropdownItem'
 import { DropdownSeparator } from '@/components/ui/dropdownMenu/dropdownSeparator'
+import { DropdownUserLabel } from '@/components/ui/dropdownMenu/dropdownUserLabel'
 import { Typography } from '@/components/ui/typography'
 
 import userLogo from '../../../assets/images/userLogo.png'
@@ -10,6 +11,8 @@ import userLogo from '../../../assets/images/userLogo.png'
 export const UserDropdown = () => {
   return (
     <DropdownCustomMenu trigger={<img alt={'user'} src={userLogo} />}>
+      <DropdownUserLabel />
+      <DropdownSeparator />
       <DropdownItem>
         <PersonOutlined />
         <Typography style={{ color: '#fff' }} variant={'caption'}>
