@@ -147,6 +147,10 @@
   color: gray;
 }
 
+.CustomItem {
+  display: flex;
+  gap: 6px;
+}
 
 @keyframes slideUpAndFade {
   from {
