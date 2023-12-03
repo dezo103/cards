@@ -42,7 +42,7 @@ export const SecondaryDropDown: Story = {
   args: {
     children: (
       <>
-        <DropdownItem>Item 1111</DropdownItem>
+        <DropdownItem> Item 1111 Item 1111 Item 1111</DropdownItem>
         <DropdownSeparator></DropdownSeparator>
         <DropdownItem>Item 2222</DropdownItem>
       </>
