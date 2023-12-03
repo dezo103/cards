@@ -53,7 +53,8 @@
   align-items: center;
 
   height: 25px;
-  padding: 0 5px;
+
+  //padding: 0 5px;
 
   //padding-left: 25px;
 
@@ -150,6 +151,22 @@
 .CustomItem {
   display: flex;
   gap: 6px;
+}
+
+.UserLabelWrapper {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 7px;
+}
+
+.LabelInfoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.UserLogo {
+  width: 40px;
+  height: 40px;
 }
 
 @keyframes slideUpAndFade {
