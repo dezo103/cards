@@ -53,11 +53,12 @@
 
   height: 25px;
   padding: 0 5px;
-  padding-left: 25px;
+
+  //padding-left: 25px;
 
   font-size: 13px;
   line-height: 1;
-  color: violet;
+  color: inherit;
 
   border-radius: 3px;
   outline: none;
@@ -80,8 +81,8 @@
 .DropdownMenuCheckboxItem[data-highlighted],
 .DropdownMenuRadioItem[data-highlighted],
 .DropdownMenuSubTrigger[data-highlighted] {
-  color: violet;
-  background-color: violet;
+  //color: violet;
+  //background-color: violet;
 }
 
 .DropdownMenuLabel {
