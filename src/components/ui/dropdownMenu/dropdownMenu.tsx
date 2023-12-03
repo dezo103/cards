@@ -17,7 +17,7 @@ export const DropdownCustomMenu = ({ children, trigger, ...rest }: Props) => {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content alignOffset={45} className={s.DropdownMenuContent} sideOffset={14}>
+        <DropdownMenu.Content align={'end'} className={s.DropdownMenuContent} sideOffset={8}>
           {children}
           <div className={s.DropdownArrow} />
         </DropdownMenu.Content>
