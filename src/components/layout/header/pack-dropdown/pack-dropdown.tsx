@@ -1,29 +1,33 @@
-import { LogoutIcon } from '@/assets/images/logoutIcon'
-import { PersonOutlined } from '@/assets/images/personOutlined'
+import { DeleteIcon } from '@/assets/images/deleteIcon'
+import { EditIcon } from '@/assets/images/editIcon'
+import { LearnIcon } from '@/assets/images/learnIcon'
+import { PackTrigger } from '@/assets/images/pack-trigger'
 import { DropdownCustomMenu } from '@/components/ui/dropdownMenu'
 import { DropdownItem } from '@/components/ui/dropdownMenu/dropdownItem'
 import { DropdownSeparator } from '@/components/ui/dropdownMenu/dropdownSeparator'
-import { DropdownUserLabel } from '@/components/ui/dropdownMenu/dropdownUserLabel'
 import { Typography } from '@/components/ui/typography'
 
-import userLogo from '../../../assets/images/userLogo.png'
-
-export const UserDropdown = () => {
+export const PackDropdown = () => {
   return (
-    <DropdownCustomMenu trigger={<img alt={'user'} src={userLogo} />}>
-      <DropdownUserLabel />
-      <DropdownSeparator />
+    <DropdownCustomMenu trigger={<PackTrigger />}>
       <DropdownItem>
-        <PersonOutlined />
+        <LearnIcon />
         <Typography style={{ color: '#fff' }} variant={'caption'}>
-          My Profile
+          Learn
         </Typography>
       </DropdownItem>
       <DropdownSeparator />
       <DropdownItem>
-        <LogoutIcon />
+        <EditIcon />
         <Typography style={{ color: '#fff' }} variant={'caption'}>
-          Sign Out
+          Edit
+        </Typography>
+      </DropdownItem>
+      <DropdownSeparator />
+      <DropdownItem>
+        <DeleteIcon />
+        <Typography style={{ color: '#fff' }} variant={'caption'}>
+          Delete
         </Typography>
       </DropdownItem>
     </DropdownCustomMenu>
