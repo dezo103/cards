@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { PackTrigger } from '@/assets/images/pack-trigger.tsx'
+import { PackTrigger } from '@/assets/images/pack-trigger'
 import { DropdownItem } from '@/components/ui/dropdownMenu/dropdownItem'
 import { DropdownSeparator } from '@/components/ui/dropdownMenu/dropdownSeparator'
 import { DropdownUserLabel } from '@/components/ui/dropdownMenu/dropdownUserLabel'
