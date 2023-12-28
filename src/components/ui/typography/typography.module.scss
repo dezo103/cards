@@ -1,6 +1,7 @@
 .text {
   all: unset;
-  color: var(--color-dark-900)
+  color: var(--color-dark-900);
+  display: block;
 }
 
 .body1 {
@@ -25,7 +26,6 @@
   font-size: var(--font-size-s);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-m);
-
 }
 
 .caption {
@@ -65,4 +65,3 @@
   color: var(--color-info-500);
   text-decoration-line: underline;
 }
-
