@@ -1,4 +1,4 @@
-import { EmailIcon } from '@/assets/images/emailIcon.tsx'
+import { EmailIcon } from '@/assets/images/emailIcon'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Typography } from '@/components/ui/typography'
