@@ -28,7 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps
   }
 
   return (
-    <label>
+    <label style={styles}>
       {label}
       <div className={s.inputWrapper}>
         {type === 'search' && (
@@ -47,7 +47,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps
           ${type === 'password' && s.passwordInput}`}
           disabled={disabled}
           ref={ref}
-          style={styles}
           type={localType || type}
           {...rest}
         />
