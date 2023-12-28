@@ -1,9 +1,8 @@
-import { useController, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 import { loginSchema } from '@/components/auth/login-form/validator'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { ControlledCheckbox } from '@/components/ui/controlled/controlled-checkbox/controlled-checkbox'
 import { Input } from '@/components/ui/input'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
@@ -16,8 +15,7 @@ export type FormValues = z.infer<typeof loginSchema>
 type Props = {
   onSubmit: (values: FormValues) => void
 }
-
-export const LoginForm = ({ onSubmit }: Props) => {
+const ForgotPasswordForm = ({ onSubmit }: Props) => {
   const {
     control,
     formState: { errors, isSubmitting },
@@ -27,23 +25,15 @@ export const LoginForm = ({ onSubmit }: Props) => {
     resolver: zodResolver(loginSchema),
   })
 
-  const {
-    field: { onChange, value },
-  } = useController({
-    control,
-    defaultValue: false,
-    name: 'rememberMe',
-  })
-
   return (
     <Card className={s.loginPopUp}>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <DevTool control={control} />
         <Typography
-          style={{ color: '#fff', paddingBottom: '27px', textAlign: 'center' }}
+          style={{ color: '#fff', paddingBottom: '51px', textAlign: 'center' }}
           variant={'large'}
         >
-          Sign In
+          Forgot your password
         </Typography>
         <Input
           {...register('email')}
@@ -52,22 +42,8 @@ export const LoginForm = ({ onSubmit }: Props) => {
           styles={{ marginBottom: '24px' }}
           type={'email'}
         />
-        <Input
-          {...register('password')}
-          error={errors.password?.message}
-          label={'Password'}
-          styles={{ marginBottom: '12px' }}
-          type={'password'}
-        />
-        <ControlledCheckbox
-          {...register('rememberMe')}
-          checked={value}
-          control={control}
-          label={'Remember me'}
-          onValueChange={onChange}
-        />
-        <Typography style={{ color: '#fff', textAlign: 'right' }} variant={'body2'}>
-          Forgot Password?
+        <Typography style={{ color: '#C3C1C7', marginBottom: '12px' }} variant={'body2'}>
+          Enter your email address and we will send you further instructions
         </Typography>
         <Button
           disabled={isSubmitting}
@@ -75,13 +51,13 @@ export const LoginForm = ({ onSubmit }: Props) => {
           style={{ marginBottom: '20px', marginTop: '66px' }}
           type={'submit'}
         >
-          Sign In
+          Send Instruction
         </Button>
         <Typography
           style={{ color: '#C3C1C7', marginBottom: '12px', textAlign: 'center' }}
           variant={'body2'}
         >
-          Don't have an account?
+          Did you remember your password?
         </Typography>
         <Typography
           as={'a'}
@@ -94,9 +70,11 @@ export const LoginForm = ({ onSubmit }: Props) => {
           }}
           variant={'link1'}
         >
-          Sign Up
+          Try logging in
         </Typography>
       </form>
     </Card>
   )
 }
+
+export default ForgotPasswordForm
