@@ -38,13 +38,13 @@ export const LoginForm = ({ onSubmit }: Props) => {
   return (
     <Card className={s.loginPopUp}>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <DevTool control={control} />
         <Typography
           style={{ color: '#fff', paddingBottom: '27px', textAlign: 'center' }}
           variant={'large'}
         >
           Sign In
         </Typography>
-        <DevTool control={control} />
         <Input
           {...register('email')}
           error={errors.email?.message}
