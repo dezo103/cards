@@ -23,6 +23,9 @@ dependencies:
   framer-motion:
     specifier: ^10.16.5
     version: 10.16.5(react-dom@18.2.0)(react@18.2.0)
+  pnpm:
+    specifier: ^8.12.1
+    version: 8.12.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -8123,6 +8126,12 @@ packages:
     dependencies:
       find-up: 5.0.0
     dev: true
+
+  /pnpm@8.12.1:
+    resolution: {integrity: sha512-ZwXqGWattlhwU+bP5v3cN3+BBmIo2vc2xEkAEvRPL/G/DHE7uPMUX84OPvZpx8FfGaWawVeDiVHyNMF7gcplXQ==}
+    engines: {node: '>=16.14'}
+    hasBin: true
+    dev: false
 
   /polished@4.2.2:
     resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
