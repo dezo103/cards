@@ -11,14 +11,13 @@
   border: 2px solid var(--color-dark-300);
   border-radius: 2px;
 
-
-
   &:focus {
     border-color: var(--color-info-700);
     outline: none;
   }
 
   &:active {
+    color: var(--color-light-100);
     border-color: var(--color-light-100);
     outline: none;
   }
