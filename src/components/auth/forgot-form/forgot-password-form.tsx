@@ -15,7 +15,7 @@ export type FormValues = z.infer<typeof loginSchema>
 type Props = {
   onSubmit: (values: FormValues) => void
 }
-const ForgotForm = ({ onSubmit }: Props) => {
+const ForgotPasswordForm = ({ onSubmit }: Props) => {
   const {
     control,
     formState: { errors, isSubmitting },
@@ -77,4 +77,4 @@ const ForgotForm = ({ onSubmit }: Props) => {
   )
 }
 
-export default ForgotForm
+export default ForgotPasswordForm
