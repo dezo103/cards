@@ -16,7 +16,13 @@ export const CheckEmail = () => {
       </Typography>
       <EmailIcon />
       <Typography
-        style={{ color: '#C3C1C7', marginBottom: '12px', marginTop: '19px', textAlign: 'center' }}
+        style={{
+          color: '#C3C1C7',
+          marginBottom: '12px',
+          marginTop: '19px',
+          opacity: 0.5,
+          textAlign: 'center',
+        }}
         variant={'body2'}
       >
         We’ve sent an Email with instructions to example@mail.com
