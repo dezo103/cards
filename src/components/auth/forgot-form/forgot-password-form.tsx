@@ -42,7 +42,10 @@ const ForgotPasswordForm = ({ onSubmit }: Props) => {
           styles={{ marginBottom: '24px' }}
           type={'email'}
         />
-        <Typography style={{ color: '#C3C1C7', marginBottom: '12px' }} variant={'body2'}>
+        <Typography
+          style={{ color: '#C3C1C7', marginBottom: '12px', opacity: 0.5 }}
+          variant={'body2'}
+        >
           Enter your email address and we will send you further instructions
         </Typography>
         <Button
