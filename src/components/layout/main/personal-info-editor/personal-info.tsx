@@ -1,45 +1,24 @@
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
 
 import { EditIcon } from '@/assets/images/editIcon.tsx'
 import { LogoutIcon } from '@/assets/images/logoutIcon.tsx'
+import { EditNicknameForm } from '@/components/layout/main/personal-info-editor/edit-props.tsx'
 import { personalInfoSchema } from '@/components/layout/main/personal-info-editor/validator.ts'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 import { Typography } from '@/components/ui/typography'
-import { DevTool } from '@hookform/devtools'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
 import s from '@/components/layout/main/personal-info-editor/personal-info.module.scss'
 
 export type FormValues = z.infer<typeof personalInfoSchema>
 type Props = {
-  onSubmit: (values: FormValues) => void
+  onSubmit: () => void
   userName: string
   userPhoto?: string
 }
 export const PersonalInfo = ({ onSubmit, userName, userPhoto }: Props) => {
   const [editNicknameMode, setEditNicknameMode] = useState(false)
-
-  const {
-    control,
-    formState: { errors, isSubmitting },
-    handleSubmit,
-    register,
-  } = useForm<FormValues>({
-    resolver: zodResolver(personalInfoSchema),
-  })
-  const onEditionalInfoSubmit = async (values: FormValues) => {
-    try {
-      onSubmit(values)
-    } catch (e) {
-      console.log(e)
-    } finally {
-      setEditNicknameMode(!editNicknameMode)
-    }
-  }
 
   return (
     <Card className={s.personalInfo}>
@@ -63,19 +42,12 @@ export const PersonalInfo = ({ onSubmit, userName, userPhoto }: Props) => {
             {userName}
           </Typography>
         ) : (
-          <form noValidate onSubmit={handleSubmit(onEditionalInfoSubmit)}>
-            <DevTool control={control} />
-            <Input
-              {...register('nickname')}
-              error={errors.nickname?.message}
-              label={'Nickname'}
-              styles={{ paddingBottom: '16px', paddingTop: '12px' }}
-              type={'text'}
-            />
-            <Button disabled={isSubmitting} fullWidth type={'submit'}>
-              Save Changes
-            </Button>
-          </form>
+          <EditNicknameForm
+            editNicknameMode={editNicknameMode}
+            onSubmit={onSubmit}
+            setEditNicknameMode={setEditNicknameMode}
+            userName={userName}
+          />
         )}
         <div
           className={s.editInfoIcon}
