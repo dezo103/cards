@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { FormValues } from '@/components/layout/main/personal-info-editor/personal-info.tsx'
-import { personalInfoSchema } from '@/components/layout/main/personal-info-editor/validator.ts'
+import { FormValues } from '@/components/layout/main/personal-info-editor/personal-info'
+import { personalInfoSchema } from '@/components/layout/main/personal-info-editor/validator'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { DevTool } from '@hookform/devtools'
