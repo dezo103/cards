@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import userLogoMain from '@/assets/images/userLogoMain.png'
-import { PersonalInfo } from '@/components/layout/main/personal-info-editor/personal-info.tsx'
+import { PersonalInfo } from '@/components/layout/main/personal-info-editor/personal-info'
 
 const meta = {
   component: PersonalInfo,
