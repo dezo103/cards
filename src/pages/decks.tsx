@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
-import { useCreateDeckMutation, useGetDeckByIdQuery, useGetDecksQuery } from '@/services/base-api'
+import {
+  useCreateDeckMutation,
+  useGetDeckByIdQuery,
+  useGetDecksQuery,
+} from '@/services/decks-service'
 
 export const Decks = () => {
   const [currentPage, setCurrentPage] = useState<number>(1)
