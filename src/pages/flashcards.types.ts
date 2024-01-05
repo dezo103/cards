@@ -18,6 +18,12 @@ export type GetDeckByIdArgs = {
   id: string
 }
 
+export type CreateDeckArgs = {
+  cover?: string
+  isPrivate?: boolean
+  name: string
+}
+
 export type GetDecksResponsePagination = {
   currentPage: number
   itemsPerPage: number

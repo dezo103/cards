@@ -1,12 +1,16 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
-import { useGetDeckByIdQuery, useGetDecksQuery } from '@/services/base-api'
+import { useCreateDeckMutation, useGetDeckByIdQuery, useGetDecksQuery } from '@/services/base-api'
 
 export const Decks = () => {
-  const { data, isError, isLoading, refetch } = useGetDecksQuery()
+  const [currentPage, setCurrentPage] = useState<number>(1)
+
+  const { data, isError, isLoading, refetch } = useGetDecksQuery({ currentPage, itemsPerPage: 10 })
   const { data: deckByIdData } = useGetDeckByIdQuery({ id: 'clr0gbgqi03gszk2v2bzxzowf' })
+  const [createDeck, { isLoading: isLoadingDeckCreation }] = useCreateDeckMutation()
 
   console.log(deckByIdData)
 
@@ -23,8 +27,18 @@ export const Decks = () => {
       <Button onClick={refetch} variant={'secondary'}>
         Refetch data
       </Button>
+      <Button
+        disabled={isLoadingDeckCreation}
+        onClick={() => {
+          createDeck({ name: "it is new Dezo's dack" })
+        }}
+        variant={'tertiary'}
+      >
+        Create new deck
+      </Button>
       <Typography variant={'h1'}>It is decks 1</Typography>
       <Link to={'/decks2'}>to Decks 2</Link>
+      <Typography variant={'h1'}>CurrentPage: {data?.pagination?.currentPage}</Typography>
       <table>
         <thead>
           <tr>
@@ -47,6 +61,29 @@ export const Decks = () => {
           })}
         </tbody>
       </table>
+      {newArray(data?.pagination?.totalPages).map(i => {
+        return (
+          <Button
+            key={i}
+            onClick={() => {
+              setCurrentPage(i)
+            }}
+            variant={'secondary'}
+          >
+            {i}
+          </Button>
+        )
+      })}
     </>
   )
+}
+
+const newArray = (num: number | undefined) => {
+  const arr = []
+
+  for (let i = 1; i <= num; i++) {
+    arr.push(i)
+  }
+
+  return arr
 }
