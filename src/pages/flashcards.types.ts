@@ -3,6 +3,17 @@ export type GetDecksResponse = {
   maxCardsCount: number
   pagination: GetDecksResponsePagination
 }
+
+export type GetDecksArgs = {
+  authorId?: string
+  currentPage?: number
+  itemsPerPage?: number
+  maxCardsCount?: number
+  minCardsCount?: number
+  name?: string
+  orderBy?: string
+}
+
 export type GetDecksResponsePagination = {
   currentPage: number
   itemsPerPage: number

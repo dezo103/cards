@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 
+import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
 import { useGetDecksQuery } from '@/services/base-api'
 
 export const Decks = () => {
-  const { data, isError, isLoading } = useGetDecksQuery()
+  const { data, isError, isLoading, refetch } = useGetDecksQuery()
 
   if (isError) {
     return <Typography variant={'h1'}>An error has occured ...</Typography>
@@ -16,6 +17,9 @@ export const Decks = () => {
 
   return (
     <>
+      <Button onClick={refetch} variant={'secondary'}>
+        Refetch data
+      </Button>
       <Typography variant={'h1'}>It is decks 1</Typography>
       <Link to={'/decks2'}>to Decks 2</Link>
       <table>

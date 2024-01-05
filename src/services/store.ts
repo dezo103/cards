@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { setupListeners } from '@reduxjs/toolkit/query/react'
 
 import { baseApi } from './base-api'
 
@@ -8,3 +9,6 @@ export const store = configureStore({
     [baseApi.reducerPath]: baseApi.reducer,
   },
 })
+
+// enable listener behavior for the store
+setupListeners(store.dispatch)
