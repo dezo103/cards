@@ -14,6 +14,10 @@ export type GetDecksArgs = {
   orderBy?: string
 }
 
+export type GetDeckByIdArgs = {
+  id: string
+}
+
 export type GetDecksResponsePagination = {
   currentPage: number
   itemsPerPage: number

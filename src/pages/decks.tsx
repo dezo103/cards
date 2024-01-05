@@ -2,10 +2,13 @@ import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
-import { useGetDecksQuery } from '@/services/base-api'
+import { useGetDeckByIdQuery, useGetDecksQuery } from '@/services/base-api'
 
 export const Decks = () => {
   const { data, isError, isLoading, refetch } = useGetDecksQuery()
+  const { data: deckByIdData } = useGetDeckByIdQuery({ id: 'clr0gbgqi03gszk2v2bzxzowf' })
+
+  console.log(deckByIdData)
 
   if (isError) {
     return <Typography variant={'h1'}>An error has occured ...</Typography>
