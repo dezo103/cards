@@ -2,9 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState } from 'react'
 
+import { AscIcon } from '@/assets/images/ascIcon.tsx'
 import { DeleteIcon } from '@/assets/images/deleteIcon'
+import { DescIcon } from '@/assets/images/descIcon.tsx'
 import { EditIcon } from '@/assets/images/editIcon'
 import { PersonOutlined } from '@/assets/images/personOutlined'
+import { PlayIcon } from '@/assets/images/playIcon'
 import { Table } from '@/components/ui/table/table'
 import { Typography } from '@/components/ui/typography'
 
@@ -133,7 +136,6 @@ const TableWithSort = () => {
 
   const [sort, setSort] = useState<Sort>(null)
 
-  console.log(sort, 'sort')
   const handleSort = (key: string) => {
     if (sort && sort.key === key) {
       setSort({
@@ -149,31 +151,53 @@ const TableWithSort = () => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Cards</th>
-          <th onClick={() => handleSort('updated')}>
-            Last Updated
-            {sort && sort.key === 'updated' && <span>{sort.direction === 'asc' ? '▲' : '▼'}</span>}
-          </th>
-          <th>Created by</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table.Root>
+      <Table.Head>
+        <Table.Row>
+          <Table.HeadCell>
+            <Typography style={{ color: '#fff' }} variant={'subtitle2'}>
+              Name
+            </Typography>
+          </Table.HeadCell>
+          <Table.HeadCell>
+            <Typography style={{ color: '#fff' }} variant={'subtitle2'}>
+              Cards
+            </Typography>
+          </Table.HeadCell>
+          <Table.HeadCell className={s.sortedCell} onClick={() => handleSort('updated')}>
+            <Typography style={{ color: '#fff' }} variant={'subtitle2'}>
+              Last Updated
+            </Typography>
+            {sort && sort.key === 'updated' && (
+              <span style={{ alignItems: 'center', display: 'flex' }}>
+                {sort.direction === 'asc' ? <AscIcon /> : <DescIcon />}
+              </span>
+            )}
+          </Table.HeadCell>
+          <Table.HeadCell>
+            <Typography style={{ color: '#fff' }} variant={'subtitle2'}>
+              Created by
+            </Typography>
+          </Table.HeadCell>
+          <Table.HeadCell></Table.HeadCell>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
         {data.map(item => (
-          <tr key={item.title}>
-            <td>{item.title}</td>
-            <td>{item.cardsCount}</td>
-            <td>{item.updated}</td>
-            <td>{item.createdBy}</td>
-            <td>icons...</td>
-          </tr>
+          <Table.Row key={item.title}>
+            <Table.Cell>{item.title}</Table.Cell>
+            <Table.Cell>{item.cardsCount}</Table.Cell>
+            <Table.Cell>{item.updated}</Table.Cell>
+            <Table.Cell>{item.createdBy}</Table.Cell>
+            <Table.Cell className={s.serviceCell}>
+              <PlayIcon />
+              <EditIcon />
+              <DeleteIcon />
+            </Table.Cell>
+          </Table.Row>
         ))}
-      </tbody>
-    </table>
+      </Table.Body>
+    </Table.Root>
   )
 }
 
