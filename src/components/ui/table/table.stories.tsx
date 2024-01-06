@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { useState } from 'react'
+
 import { DeleteIcon } from '@/assets/images/deleteIcon'
 import { EditIcon } from '@/assets/images/editIcon'
 import { PersonOutlined } from '@/assets/images/personOutlined'
@@ -88,4 +90,93 @@ export const TableExample: Story = {
       </>
     ),
   },
+}
+
+const data = [
+  {
+    cardsCount: 10,
+    createdBy: 'John Doe',
+    title: 'Project A',
+    updated: '2023-07-07',
+  },
+  {
+    cardsCount: 5,
+    createdBy: 'Jane Smith',
+    title: 'Project B',
+    updated: '2023-07-06',
+  },
+  {
+    cardsCount: 8,
+    createdBy: 'Alice Johnson',
+    title: 'Project C',
+    updated: '2023-07-05',
+  },
+  {
+    cardsCount: 3,
+    createdBy: 'Bob Anderson',
+    title: 'Project D',
+    updated: '2023-07-07',
+  },
+  {
+    cardsCount: 12,
+    createdBy: 'Emma Davis',
+    title: 'Project E',
+    updated: '2023-07-04',
+  },
+]
+
+const TableWithSort = () => {
+  type Sort = {
+    direction: 'asc' | 'desc'
+    key: string
+  } | null
+
+  const [sort, setSort] = useState<Sort>(null)
+
+  console.log(sort, 'sort')
+  const handleSort = (key: string) => {
+    if (sort && sort.key === key) {
+      setSort({
+        direction: sort.direction === 'asc' ? 'desc' : 'asc',
+        key,
+      })
+    } else {
+      setSort({
+        direction: 'asc',
+        key,
+      })
+    }
+  }
+
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cards</th>
+          <th onClick={() => handleSort('updated')}>
+            Last Updated
+            {sort && sort.key === 'updated' && <span>{sort.direction === 'asc' ? '▲' : '▼'}</span>}
+          </th>
+          <th>Created by</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map(item => (
+          <tr key={item.title}>
+            <td>{item.title}</td>
+            <td>{item.cardsCount}</td>
+            <td>{item.updated}</td>
+            <td>{item.createdBy}</td>
+            <td>icons...</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+export const WithSort: Story = {
+  render: () => <TableWithSort />,
 }
