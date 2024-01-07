@@ -2,7 +2,6 @@ import { AscIcon } from '@/assets/images/ascIcon'
 import { DeleteIcon } from '@/assets/images/deleteIcon'
 import { DescIcon } from '@/assets/images/descIcon'
 import { EditIcon } from '@/assets/images/editIcon'
-import { PlayIcon } from '@/assets/images/playIcon'
 import { useSort } from '@/common/utils/useSort'
 import { Table } from '@/components/ui/table'
 import { Typography } from '@/components/ui/typography'
@@ -14,12 +13,12 @@ type Props = {
 }
 
 type Card = {
-  cardsCount: number
-  createdBy: string
-  title: string
+  answer: string
+  grade: number
+  question: string
   updated: string
 }
-export const PackListTable = ({ data }: Props) => {
+export const PackTable = ({ data }: Props) => {
   const { handleSort, sort } = useSort()
 
   return (
@@ -28,12 +27,12 @@ export const PackListTable = ({ data }: Props) => {
         <Table.Row>
           <Table.HeadCell>
             <Typography style={{ color: '#fff' }} variant={'subtitle2'}>
-              Name
+              Question
             </Typography>
           </Table.HeadCell>
           <Table.HeadCell>
             <Typography style={{ color: '#fff' }} variant={'subtitle2'}>
-              Cards
+              Answer
             </Typography>
           </Table.HeadCell>
           <Table.HeadCell className={s.sortedCell} onClick={() => handleSort('updated')}>
@@ -48,7 +47,7 @@ export const PackListTable = ({ data }: Props) => {
           </Table.HeadCell>
           <Table.HeadCell>
             <Typography style={{ color: '#fff' }} variant={'subtitle2'}>
-              Created by
+              Grade
             </Typography>
           </Table.HeadCell>
           <Table.HeadCell></Table.HeadCell>
@@ -56,13 +55,12 @@ export const PackListTable = ({ data }: Props) => {
       </Table.Head>
       <Table.Body>
         {data.map(item => (
-          <Table.Row key={item.title}>
-            <Table.Cell>{item.title}</Table.Cell>
-            <Table.Cell>{item.cardsCount}</Table.Cell>
+          <Table.Row key={item.question}>
+            <Table.Cell>{item.question}</Table.Cell>
+            <Table.Cell>{item.answer}</Table.Cell>
             <Table.Cell>{item.updated}</Table.Cell>
-            <Table.Cell>{item.createdBy}</Table.Cell>
+            <Table.Cell>{item.grade}</Table.Cell>
             <Table.Cell className={s.serviceCell}>
-              <PlayIcon />
               <EditIcon />
               <DeleteIcon />
             </Table.Cell>
