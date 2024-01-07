@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { useState } from 'react'
-
 import { AscIcon } from '@/assets/images/ascIcon'
 import { DeleteIcon } from '@/assets/images/deleteIcon'
 import { DescIcon } from '@/assets/images/descIcon'
 import { EditIcon } from '@/assets/images/editIcon'
 import { PlayIcon } from '@/assets/images/playIcon'
+import { useSort } from '@/common/utils/useSort.tsx'
 import { Table } from '@/components/ui/table/table'
 import { Typography } from '@/components/ui/typography'
 
@@ -55,26 +54,7 @@ const data = [
 ]
 
 const TableWithSort = () => {
-  type Sort = {
-    direction: 'asc' | 'desc'
-    key: string
-  } | null
-
-  const [sort, setSort] = useState<Sort>(null)
-
-  const handleSort = (key: string) => {
-    if (sort && sort.key === key) {
-      setSort({
-        direction: sort.direction === 'asc' ? 'desc' : 'asc',
-        key,
-      })
-    } else {
-      setSort({
-        direction: 'asc',
-        key,
-      })
-    }
-  }
+  const { handleSort, sort } = useSort()
 
   return (
     <Table.Root>
@@ -129,4 +109,49 @@ const TableWithSort = () => {
 
 export const WithSort: Story = {
   render: () => <TableWithSort />,
+}
+
+export const SimpleTable: Story = {
+  render: () => <BasicTable />,
+}
+
+const BasicTable = () => {
+  return (
+    <Table.Root>
+      <Table.Head>
+        <Table.Row>
+          <Table.HeadCell>title 1</Table.HeadCell>
+          <Table.HeadCell>title 2</Table.HeadCell>
+          <Table.HeadCell>title 3</Table.HeadCell>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>value 1</Table.Cell>
+          <Table.Cell>value 2</Table.Cell>
+          <Table.Cell>value 3</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>value 11</Table.Cell>
+          <Table.Cell>value 22</Table.Cell>
+          <Table.Cell>value 32</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>value 13</Table.Cell>
+          <Table.Cell>value 23</Table.Cell>
+          <Table.Cell>value 34</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>value 1</Table.Cell>
+          <Table.Cell>value 23</Table.Cell>
+          <Table.Cell>value 3</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>value 1</Table.Cell>
+          <Table.Cell>value 23</Table.Cell>
+          <Table.Cell>value 35</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table.Root>
+  )
 }
