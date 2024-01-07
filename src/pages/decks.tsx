@@ -65,24 +65,25 @@ export const Decks = () => {
           })}
         </tbody>
       </table>
-      {newArray(data?.pagination?.totalPages).map(i => {
-        return (
-          <Button
-            key={i}
-            onClick={() => {
-              setCurrentPage(i)
-            }}
-            variant={'secondary'}
-          >
-            {i}
-          </Button>
-        )
-      })}
+      {data?.pagination?.totalPages &&
+        newArray(data?.pagination?.totalPages).map(i => {
+          return (
+            <Button
+              key={i}
+              onClick={() => {
+                setCurrentPage(i)
+              }}
+              variant={'secondary'}
+            >
+              {i}
+            </Button>
+          )
+        })}
     </>
   )
 }
 
-const newArray = (num: number | undefined) => {
+const newArray = (num: number) => {
   const arr = []
 
   for (let i = 1; i <= num; i++) {
