@@ -1,5 +1,3 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
 import { useState } from 'react'
 
 import { AscIcon } from '@/assets/images/ascIcon'
@@ -7,54 +5,22 @@ import { DeleteIcon } from '@/assets/images/deleteIcon'
 import { DescIcon } from '@/assets/images/descIcon'
 import { EditIcon } from '@/assets/images/editIcon'
 import { PlayIcon } from '@/assets/images/playIcon'
-import { Table } from '@/components/ui/table/table'
+import { Table } from '@/components/ui/table'
 import { Typography } from '@/components/ui/typography'
 
-import s from './table.module.scss'
+import s from '@/components/ui/table/table.module.scss'
 
-const meta = {
-  component: Table.Root,
-  tags: ['autodocs'],
-  title: 'Components/Table',
-} satisfies Meta<typeof Table.Root>
+type Props = {
+  data: Array<Card>
+}
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-const data = [
-  {
-    cardsCount: 10,
-    createdBy: 'John Doe',
-    title: 'Project A',
-    updated: '2023-07-07',
-  },
-  {
-    cardsCount: 5,
-    createdBy: 'Jane Smith',
-    title: 'Project B',
-    updated: '2023-07-06',
-  },
-  {
-    cardsCount: 8,
-    createdBy: 'Alice Johnson',
-    title: 'Project C',
-    updated: '2023-07-05',
-  },
-  {
-    cardsCount: 3,
-    createdBy: 'Bob Anderson',
-    title: 'Project D',
-    updated: '2023-07-07',
-  },
-  {
-    cardsCount: 12,
-    createdBy: 'Emma Davis',
-    title: 'Project E',
-    updated: '2023-07-04',
-  },
-]
-
-const TableWithSort = () => {
+type Card = {
+  cardsCount: number
+  createdBy: string
+  title: string
+  updated: string
+}
+export const PackListTable = ({ data }: Props) => {
   type Sort = {
     direction: 'asc' | 'desc'
     key: string
@@ -125,8 +91,4 @@ const TableWithSort = () => {
       </Table.Body>
     </Table.Root>
   )
-}
-
-export const WithSort: Story = {
-  render: () => <TableWithSort />,
 }
