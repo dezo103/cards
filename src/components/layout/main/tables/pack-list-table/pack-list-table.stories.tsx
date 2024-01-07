@@ -44,6 +44,6 @@ const data = [
   },
 ]
 
-export const PrimaryTable: Story = {
+export const TableOfPackList: Story = {
   args: { data },
 }
