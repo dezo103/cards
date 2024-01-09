@@ -5,7 +5,7 @@ import { DeleteIcon } from '@/assets/images/deleteIcon'
 import { DescIcon } from '@/assets/images/descIcon'
 import { EditIcon } from '@/assets/images/editIcon'
 import { PlayIcon } from '@/assets/images/playIcon'
-import { useSort } from '@/common/utils/useSort.tsx'
+import { useSort } from '@/common/utils/useSort'
 import { Table } from '@/components/ui/table/table'
 import { Typography } from '@/components/ui/typography'
 
