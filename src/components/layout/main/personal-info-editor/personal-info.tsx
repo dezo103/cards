@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import { EditIcon } from '@/assets/images/editIcon.tsx'
-import { LogoutIcon } from '@/assets/images/logoutIcon.tsx'
-import { EditNicknameForm } from '@/components/layout/main/personal-info-editor/edit-props.tsx'
-import { personalInfoSchema } from '@/components/layout/main/personal-info-editor/validator.ts'
+import { EditIcon } from '@/assets/images/editIcon'
+import { LogoutIcon } from '@/assets/images/logoutIcon'
+import { EditNicknameForm } from '@/components/layout/main/personal-info-editor/edit-props'
+import { personalInfoSchema } from '@/components/layout/main/personal-info-editor/validator'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Typography } from '@/components/ui/typography'
