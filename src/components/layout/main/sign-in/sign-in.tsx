@@ -7,12 +7,12 @@ import { LoginArgs } from '@/services/auth.types'
 export const SignIn = () => {
   const [login] = useLoginMutation()
   const navigate = useNavigate()
-  const handleLogin = async ({ email, password, rememberMe }: LoginArgs) => {
+  const handleLogin = async (args: LoginArgs) => {
     try {
-      await login({ email, password, rememberMe })
+      await login(args)
       navigate('/')
     } catch (e) {
-      console.log(e)
+      console.error(e)
     }
   }
 
