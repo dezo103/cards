@@ -73,6 +73,7 @@ export const Decks = () => {
               onClick={() => {
                 setCurrentPage(i)
               }}
+              style={{ margin: '3px', padding: '5px' }}
               variant={'secondary'}
             >
               {i}

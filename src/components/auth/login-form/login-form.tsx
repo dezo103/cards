@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card'
 import { ControlledCheckbox } from '@/components/ui/controlled/controlled-checkbox/controlled-checkbox'
 import { Input } from '@/components/ui/input'
 import { Typography } from '@/components/ui/typography'
-import { DevTool } from '@hookform/devtools'
+// import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
@@ -38,7 +38,7 @@ export const LoginForm = ({ onSubmit }: Props) => {
   return (
     <Card className={s.loginPopUp}>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
-        <DevTool control={control} />
+        {/*<DevTool control={control} />*/}
         <Typography
           style={{ color: '#fff', paddingBottom: '27px', textAlign: 'center' }}
           variant={'large'}
