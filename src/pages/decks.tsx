@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
 import {
   useCreateDeckMutation,
-  useGetDeckByIdQuery,
+  // useGetDeckByIdQuery,
   useGetDecksQuery,
 } from '@/services/decks-service'
 
@@ -13,10 +13,8 @@ export const Decks = () => {
   const [currentPage, setCurrentPage] = useState<number>(1)
 
   const { data, isError, isLoading, refetch } = useGetDecksQuery({ currentPage, itemsPerPage: 10 })
-  const { data: deckByIdData } = useGetDeckByIdQuery({ id: 'clr0gbgqi03gszk2v2bzxzowf' })
+  // const { data: deckByIdData } = useGetDeckByIdQuery({ id: 'clr0gbgqi03gszk2v2bzxzowf' })
   const [createDeck, { isLoading: isLoadingDeckCreation }] = useCreateDeckMutation()
-
-  console.log(deckByIdData)
 
   if (isError) {
     return <Typography variant={'h1'}>An error has occured ...</Typography>

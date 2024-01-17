@@ -8,6 +8,7 @@ import {
 
 import { SignIn } from '@/components/layout/main/sign-in/sign-in'
 import { Decks } from '@/pages/decks'
+import { useMeQuery } from '@/services/auth.service'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -36,7 +37,15 @@ export const Router = () => {
 }
 
 function PrivateRoutes() {
-  const isAuthenticated = true
+  const { isError, isLoading } = useMeQuery()
+
+  if (isLoading) {
+    return
+  }
+
+  const isAuthenticated = !isError
+
+  console.log(isError, 'isError')
 
   return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />
 }
