@@ -32,7 +32,7 @@ export const Decks = () => {
       <Button
         disabled={isLoadingDeckCreation}
         onClick={() => {
-          createDeck({ name: "it is new Dezo's dack" })
+          createDeck({ name: 'Hello Lisa ))' })
         }}
         variant={'tertiary'}
       >
