@@ -33,7 +33,7 @@ export const Decks = () => {
       <Button
         disabled={isLoadingDeckCreation}
         onClick={() => {
-          createDeck({ name: 'Hello Lisa ))' })
+          createDeck({ name: 'Hello incubator' })
         }}
         variant={'tertiary'}
       >
@@ -57,6 +57,7 @@ export const Decks = () => {
               <DecksCard
                 authorName={deck.author.name}
                 cardsCount={deck.cardsCount}
+                id={deck.id}
                 key={deck.id}
                 name={deck.name}
                 updatedDate={deck.updated}
