@@ -38,7 +38,7 @@ const decksService = baseApi.injectEndpoints({
       }),
       updateDeck: builder.mutation<any, any>({
         invalidatesTags: ['Decks'],
-        onQueryStarted: async ({ id, ...body }, { dispatch, getState, queryFulfilled }) => {
+        onQueryStarted: async ({ id, ...body }, { dispatch, queryFulfilled }) => {
           // const state = getState() as RootState<any, any, any>
           const currentPage = 1
           const itemsPerPage = 10
