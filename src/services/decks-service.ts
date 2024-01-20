@@ -3,14 +3,27 @@ import {
   GetDeckByIdArgs,
   GetDecksArgs,
   GetDecksResponse,
+  GetDecksResponseItems,
 } from '@/pages/flashcards.types'
 import { baseApi } from '@/services/base-api'
 
 const decksService = baseApi.injectEndpoints({
   endpoints: builder => {
     return {
-      createDeck: builder.mutation<void, CreateDeckArgs>({
+      createDeck: builder.mutation<GetDecksResponseItems, CreateDeckArgs>({
         invalidatesTags: ['Decks'], // invalidate cache for its refetching
+        onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+          // const state = getState() as RootState<any, any, any>
+          const currentPage = 1
+          const itemsPerPage = 10
+          const res = await queryFulfilled
+
+          dispatch(
+            decksService.util.updateQueryData('getDecks', { currentPage, itemsPerPage }, draft => {
+              draft.items.unshift(res.data)
+            }) // данные мы должны вынимать из slice (а для этого нужно в слайсах хранить пользовательские настройки)
+          ) //диспатч состояния непосредственно перед запросом на сервер
+        },
         query: arg => {
           return {
             body: arg,
