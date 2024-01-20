@@ -20,7 +20,7 @@ const decksService = baseApi.injectEndpoints({
         },
       }),
       getDeckById: builder.query<GetDecksResponse, GetDeckByIdArgs>({
-        providesTags: ['Decks'], // it will be execute when cache is not valid
+        providesTags: ['Decks'], // it will execute when cache is not valid
         query: ({ id }) => {
           return {
             url: `v1/decks/${id}`,
@@ -38,6 +38,26 @@ const decksService = baseApi.injectEndpoints({
       }),
       updateDeck: builder.mutation<any, any>({
         invalidatesTags: ['Decks'],
+        onQueryStarted: async ({ id, ...body }, { dispatch, getState, queryFulfilled }) => {
+          // const state = getState() as RootState<any, any, any>
+          const currentPage = 1
+          const itemsPerPage = 10
+
+          dispatch(
+            decksService.util.updateQueryData('getDecks', { currentPage, itemsPerPage }, draft => {
+              const deck = draft.items.find(deck => deck.id === id)
+
+              // util.updateQueryData используется как ключ стейта
+              if (deck) {
+                Object.assign(deck, {
+                  ...deck,
+                  ...body,
+                })
+              }
+            }) // данные мы должны вынимать из slice (а для этого нужно в слайсах хранить пользовательские настройки)
+          ) //диспатч состояния непосредственно перед запросом на сервер
+          await queryFulfilled
+        },
         query: ({ id, ...body }) => {
           return {
             body,

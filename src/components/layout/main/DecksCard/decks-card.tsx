@@ -16,7 +16,7 @@ export const DecksCard = ({ authorName, cardsCount, id, name, updatedDate }: Pro
     <tr>
       <td
         onClick={() => {
-          updateDeck({ id, name: 'it is a new' })
+          updateDeck({ id, name: 'it is a newest' })
         }}
       >
         {name}
