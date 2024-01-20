@@ -36,8 +36,23 @@ const decksService = baseApi.injectEndpoints({
           }
         },
       }),
+      updateDeck: builder.mutation<any, any>({
+        invalidatesTags: ['Decks'],
+        query: ({ id, ...body }) => {
+          return {
+            body,
+            method: 'PATCH',
+            url: `v1/decks/${id}`,
+          }
+        },
+      }),
     }
   },
 })
 
-export const { useCreateDeckMutation, useGetDeckByIdQuery, useGetDecksQuery } = decksService
+export const {
+  useCreateDeckMutation,
+  useGetDeckByIdQuery,
+  useGetDecksQuery,
+  useUpdateDeckMutation,
+} = decksService
