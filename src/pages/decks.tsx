@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { DecksCard } from '@/components/layout/main/DecksCard/decks-card'
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
 import {
@@ -53,12 +54,13 @@ export const Decks = () => {
         <tbody>
           {data?.items?.map(deck => {
             return (
-              <tr key={deck?.id}>
-                <td>{deck?.name}</td>
-                <td>{deck?.cardsCount}</td>
-                <td>{new Date(deck?.updated).toLocaleDateString()}</td>
-                <td>{deck?.author.name}</td>
-              </tr>
+              <DecksCard
+                authorName={deck.author.name}
+                cardsCount={deck.cardsCount}
+                key={deck.id}
+                name={deck.name}
+                updatedDate={deck.updated}
+              />
             )
           })}
         </tbody>
