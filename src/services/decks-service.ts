@@ -37,6 +37,7 @@ const decksService = baseApi.injectEndpoints({
         },
       }),
       updateDeck: builder.mutation<any, any>({
+        invalidatesTags: ['Decks'],
         query: ({ id, ...body }) => {
           return {
             body,
