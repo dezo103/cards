@@ -13,12 +13,12 @@ import {
 export const Decks = () => {
   const [currentPage, setCurrentPage] = useState<number>(1)
 
-  const { currentData, isError, isLoading, refetch } = useGetDecksQuery({
+  const { currentData, data, isError, isLoading, refetch } = useGetDecksQuery({
     currentPage,
     itemsPerPage: 10,
   })
 
-  console.log(currentData)
+  const decks = currentData ?? data
   // const { data: deckByIdData } = useGetDeckByIdQuery({ id: 'clr0gbgqi03gszk2v2bzxzowf' })
   const [createDeck, { isLoading: isLoadingDeckCreation }] = useCreateDeckMutation()
 
@@ -46,7 +46,7 @@ export const Decks = () => {
       </Button>
       <Typography variant={'h1'}>It is decks 1</Typography>
       <Link to={'/decks2'}>to Decks 2</Link>
-      <Typography variant={'h1'}>CurrentPage: {currentData?.pagination?.currentPage}</Typography>
+      <Typography variant={'h1'}>CurrentPage: {decks?.pagination?.currentPage}</Typography>
       <table>
         <thead>
           <tr>
@@ -57,7 +57,7 @@ export const Decks = () => {
           </tr>
         </thead>
         <tbody>
-          {currentData?.items?.map(deck => {
+          {decks?.items?.map(deck => {
             return (
               <DecksCard
                 authorName={deck.author.name}
@@ -71,8 +71,8 @@ export const Decks = () => {
           })}
         </tbody>
       </table>
-      {currentData?.pagination?.totalPages &&
-        newArray(currentData?.pagination?.totalPages).map(i => {
+      {decks?.pagination?.totalPages &&
+        newArray(decks?.pagination?.totalPages).map(i => {
           return (
             <Button
               key={i}
