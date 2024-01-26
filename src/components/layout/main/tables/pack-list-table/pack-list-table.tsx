@@ -6,18 +6,12 @@ import { PlayIcon } from '@/assets/images/playIcon'
 import { useSort } from '@/common/utils/useSort'
 import { Table } from '@/components/ui/table'
 import { Typography } from '@/components/ui/typography'
+import { GetDecksResponseItems } from '@/pages/flashcards.types'
 
 import s from '@/components/ui/table/table.module.scss'
 
 type Props = {
-  data: Array<Card>
-}
-
-type Card = {
-  cardsCount: number
-  createdBy: string
-  title: string
-  updated: string
+  data: GetDecksResponseItems[] | undefined
 }
 export const PackListTable = ({ data }: Props) => {
   const { handleSort, sort } = useSort()
@@ -55,12 +49,12 @@ export const PackListTable = ({ data }: Props) => {
         </Table.Row>
       </Table.Head>
       <Table.Body>
-        {data.map(item => (
-          <Table.Row key={item.title}>
-            <Table.Cell>{item.title}</Table.Cell>
+        {data?.map(item => (
+          <Table.Row key={item.id}>
+            <Table.Cell>{item.name}</Table.Cell>
             <Table.Cell>{item.cardsCount}</Table.Cell>
             <Table.Cell>{item.updated}</Table.Cell>
-            <Table.Cell>{item.createdBy}</Table.Cell>
+            <Table.Cell>{item.author.name}</Table.Cell>
             <Table.Cell className={s.serviceCell}>
               <PlayIcon />
               <EditIcon />

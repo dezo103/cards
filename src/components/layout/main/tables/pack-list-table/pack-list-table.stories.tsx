@@ -13,34 +13,52 @@ type Story = StoryObj<typeof meta>
 
 const data = [
   {
-    cardsCount: 10,
-    createdBy: 'John Doe',
-    title: 'Project A',
-    updated: '2023-07-07',
-  },
-  {
-    cardsCount: 5,
-    createdBy: 'Jane Smith',
-    title: 'Project B',
-    updated: '2023-07-06',
-  },
-  {
+    author: { id: '3c79d729-9019-4aa1-8050-223b02bf238a', name: 'tazalov' },
     cardsCount: 8,
-    createdBy: 'Alice Johnson',
-    title: 'Project C',
-    updated: '2023-07-05',
+    cover:
+      'https://andrii-flashcards.s3.eu-central-1.amazonaws.com/aa0ca970-e426-4803-a358-3ee46b751146-boston.jpg',
+    created: '2024-01-16T06:04:06.240Z',
+    id: 'clrfy83c00boszk2v2wqcy45v',
+    isPrivate: false,
+    name: 'Породы собак!',
+    updated: '2024-01-26T16:34:07.076Z',
+    userId: '3c79d729-9019-4aa1-8050-223b02bf238a',
   },
   {
-    cardsCount: 3,
-    createdBy: 'Bob Anderson',
-    title: 'Project D',
-    updated: '2023-07-07',
+    author: { id: '3c79d729-9019-4aa1-8050-223b02bf238a', name: 'tazalov' },
+    cardsCount: 8,
+    cover:
+      'https://andrii-flashcards.s3.eu-central-1.amazonaws.com/aa0ca970-e426-4803-a358-3ee46b751146-boston.jpg',
+    created: '2024-01-16T06:04:06.240Z',
+    id: 'clrfy83c00boszk2v2wqcy45v',
+    isPrivate: false,
+    name: 'Породы собак!',
+    updated: '2024-01-26T16:34:07.076Z',
+    userId: '3c79d729-9019-4aa1-8050-223b02bf238a',
   },
   {
-    cardsCount: 12,
-    createdBy: 'Emma Davis',
-    title: 'Project E',
-    updated: '2023-07-04',
+    author: { id: '3c79d729-9019-4aa1-8050-223b02bf238a', name: 'tazalov' },
+    cardsCount: 8,
+    cover:
+      'https://andrii-flashcards.s3.eu-central-1.amazonaws.com/aa0ca970-e426-4803-a358-3ee46b751146-boston.jpg',
+    created: '2024-01-16T06:04:06.240Z',
+    id: 'clrfy83c00boszk2v2wqcy45v',
+    isPrivate: false,
+    name: 'Породы собак!',
+    updated: '2024-01-26T16:34:07.076Z',
+    userId: '3c79d729-9019-4aa1-8050-223b02bf238a',
+  },
+  {
+    author: { id: '3c79d729-9019-4aa1-8050-223b02bf238a', name: 'tazalov' },
+    cardsCount: 8,
+    cover:
+      'https://andrii-flashcards.s3.eu-central-1.amazonaws.com/aa0ca970-e426-4803-a358-3ee46b751146-boston.jpg',
+    created: '2024-01-16T06:04:06.240Z',
+    id: 'clrfy83c00boszk2v2wqcy45v',
+    isPrivate: false,
+    name: 'Породы собак!',
+    updated: '2024-01-26T16:34:07.076Z',
+    userId: '3c79d729-9019-4aa1-8050-223b02bf238a',
   },
 ]
 
