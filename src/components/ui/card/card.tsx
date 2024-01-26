@@ -8,7 +8,7 @@ export type CardProps<T extends ElementType = 'div'> = {
   as?: T
   children?: ReactNode
   className?: string
-  styles: CSSProperties
+  styles?: CSSProperties
 } & ComponentPropsWithoutRef<T>
 const CardWithoutRef = <T extends ElementType = 'div'>(
   props: CardProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof CardProps<T>>
