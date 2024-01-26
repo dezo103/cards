@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 import { PackListTable } from '@/components/layout/main/tables/pack-list-table/pack-list-table'
 import { Button } from '@/components/ui/button'
@@ -45,7 +44,6 @@ export const Decks = () => {
         Create new deck
       </Button>
       <Typography variant={'h1'}>It is decks 1</Typography>
-      <Link to={'/decks2'}>to Decks 2</Link>
       <Typography variant={'h1'}>CurrentPage: {decks?.pagination?.currentPage}</Typography>
       <PackListTable data={decks?.items} />
       {decks?.pagination?.totalPages &&
