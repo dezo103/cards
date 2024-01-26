@@ -7,7 +7,7 @@ import { useSort } from '@/common/utils/useSort'
 import { Table } from '@/components/ui/table'
 import { Typography } from '@/components/ui/typography'
 import { GetDecksResponseItems } from '@/pages/flashcards.types'
-import { useUpdateDeckMutation } from '@/services/decks-service.ts'
+import { useUpdateDeckMutation } from '@/services/decks-service'
 
 import s from '@/components/ui/table/table.module.scss'
 
