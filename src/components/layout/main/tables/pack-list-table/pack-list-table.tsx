@@ -7,6 +7,7 @@ import { useSort } from '@/common/utils/useSort'
 import { Table } from '@/components/ui/table'
 import { Typography } from '@/components/ui/typography'
 import { GetDecksResponseItems } from '@/pages/flashcards.types'
+import { useUpdateDeckMutation } from '@/services/decks-service.ts'
 
 import s from '@/components/ui/table/table.module.scss'
 
@@ -15,6 +16,8 @@ type Props = {
 }
 export const PackListTable = ({ data }: Props) => {
   const { handleSort, sort } = useSort()
+
+  const [updateDeck] = useUpdateDeckMutation()
 
   return (
     <Table.Root>
@@ -51,7 +54,13 @@ export const PackListTable = ({ data }: Props) => {
       <Table.Body>
         {data?.map(item => (
           <Table.Row key={item.id}>
-            <Table.Cell>{item.name}</Table.Cell>
+            <Table.Cell
+              onClick={() => {
+                updateDeck({ id: item.id, name: 'it is a newest' })
+              }}
+            >
+              {item.name}
+            </Table.Cell>
             <Table.Cell>{item.cardsCount}</Table.Cell>
             <Table.Cell>{item.updated}</Table.Cell>
             <Table.Cell>{item.author.name}</Table.Cell>

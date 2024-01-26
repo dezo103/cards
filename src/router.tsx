@@ -45,7 +45,7 @@ function PrivateRoutes() {
 
   const isAuthenticated = !isError
 
-  console.log(isError, 'isError')
+  // console.log(isError, 'isError')
 
   return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />
 }
