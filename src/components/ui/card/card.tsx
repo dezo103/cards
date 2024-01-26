@@ -1,4 +1,4 @@
-import { CSSProperties, ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from 'react'
+import { CSSProperties, ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -18,4 +18,4 @@ const CardWithoutRef = <T extends ElementType = 'div'>(
   return <Component className={clsx(s.card, className)} style={styles} {...rest}></Component>
 }
 
-export const Card = forwardRef(CardWithoutRef)
+export const Card = CardWithoutRef
