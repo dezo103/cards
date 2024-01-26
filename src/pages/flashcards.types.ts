@@ -44,7 +44,7 @@ export type GetDecksResponseItems = {
   isDeleted?: boolean | null
   isPrivate: boolean
   name: string
-  shots: number
+  shots?: number
   updated: string
   userId: string
 }

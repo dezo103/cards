@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { DecksCard } from '@/components/layout/main/DecksCard/decks-card'
+import { PackListTable } from '@/components/layout/main/tables/pack-list-table/pack-list-table'
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
 import {
@@ -47,30 +47,7 @@ export const Decks = () => {
       <Typography variant={'h1'}>It is decks 1</Typography>
       <Link to={'/decks2'}>to Decks 2</Link>
       <Typography variant={'h1'}>CurrentPage: {decks?.pagination?.currentPage}</Typography>
-      <table>
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>Cards Count</td>
-            <td>Last Update</td>
-            <td>Created by</td>
-          </tr>
-        </thead>
-        <tbody>
-          {decks?.items?.map(deck => {
-            return (
-              <DecksCard
-                authorName={deck.author.name}
-                cardsCount={deck.cardsCount}
-                id={deck.id}
-                key={deck.id}
-                name={deck.name}
-                updatedDate={deck.updated}
-              />
-            )
-          })}
-        </tbody>
-      </table>
+      <PackListTable data={decks?.items} />
       {decks?.pagination?.totalPages &&
         newArray(decks?.pagination?.totalPages).map(i => {
           return (
